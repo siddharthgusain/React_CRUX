@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.css';
+import LogginControl from './components/LogginControl';
 
 class App extends React.Component {
   constructor(props) {
     console.log("APP CONSTRUCTOR CALLED");
     super(props);
-    this.state = { isToggleOn: false };
+    this.state = {
+      isToggleOn: false,
+      isLoggedIn: false
+    };
 
     // Why we are binding toggleState function with "this"
     // Bind just returns a function that we can call later which contains reference to the first argument passed
@@ -40,13 +44,17 @@ class App extends React.Component {
     }
   */
 
+
   render() {
     console.log("APP RENDER CALLED");
 
     return (
-      <button onClick={(e) => this.toggleState("toggling", e)}>
-        {this.state.isToggleOn ? "ON" : "OFF"}
-      </button>
+      <>
+        <button onClick={(e) => this.toggleState("toggling", e)}>
+          {this.state.isToggleOn ? "ON" : "OFF"}
+        </button>
+        <LogginControl isLoggedIn={this.state.isLoggedIn} />
+      </>
     )
   }
 }
