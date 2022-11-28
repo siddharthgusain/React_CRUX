@@ -24,6 +24,13 @@ class App extends React.Component {
     console.log(this);
     console.log(e);
     console.log(msg);
+    this.setState((prevState) => {
+      return (
+        {
+          isToggleOn: !prevState.isToggleOn
+        }
+      )
+    })
   }
 
   //WORKAROUND (USE ARROW FUNCTION) AND NO NEED OF BINDING IN CONSTRUCTOR
